@@ -1,0 +1,4 @@
+cd- change directory;
+dir- expand directory;
+javac asdf.java-compile;
+java classname-run program;

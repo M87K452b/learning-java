@@ -1,0 +1,140 @@
+
+	import java.awt.*;
+	import java.awt.event.ActionEvent;
+	import java.awt.event.ActionListener;
+	import javax.swing.*;
+
+	public class rpsGUItest extends JFrame{
+
+	private static final long serialVersionUID = 1L;
+
+	public rpsGUItest(){
+	    super("Rock, Paper, Scissors");
+
+
+	    //settings of the GUI
+	    setSize(600, 400);
+	    setDefaultCloseOperation(EXIT_ON_CLOSE);
+	    setVisible(true);
+
+	    //Creating the panels
+	    JPanel head = new JPanel();
+	    JPanel body = new JPanel(new GridBagLayout());
+	    JPanel footer = new JPanel();
+
+
+	    //Creating the Buttons
+	    JButton rock = new JButton("Rock");
+	    JButton paper = new JButton("Paper");
+	    JButton scissors = new JButton("Scissors");
+	    JLabel label = new JLabel("Label");
+
+	    //Button Functions
+	    rock.addActionListener(new ActionListener() {
+
+	        @Override
+	        public void actionPerformed(ActionEvent e) {
+	            // TODO Auto-generated method stub
+	            double picker = Math.floor(Math.random()*3);
+	            if(picker == 0.0){
+	                JOptionPane.showMessageDialog(null, "You picked Rock, the Computer picked Rock, it's a tie!");
+
+
+	            }
+	            else if(picker == 1.0){
+	                JOptionPane.showMessageDialog(null, "You picked Rock, the Computer picked Paper, the Computer Wins!, for some reason.");
+
+
+	            }
+	            else if(picker == 2.0){
+	            JOptionPane.showMessageDialog(null, "You picked Rock, the Computer picked Scissors, You win! ");
+
+	            } 
+	        }
+	    });
+	    paper.addActionListener(new ActionListener() {
+
+	        @Override
+	        public void actionPerformed(ActionEvent e) {
+	            // TODO Auto-generated method stub
+	            double picker = Math.floor(Math.random()*3);
+	            if(picker == 0.0){
+	                JOptionPane.showMessageDialog(null, "You picked Paper, the Computer picked Rock, You win!");
+
+
+	            }
+	            else if(picker == 1.0){
+	                JOptionPane.showMessageDialog(null, "You picked Paper, the Computer picked Paper, it's a tie!");
+
+
+	            }
+	            else if(picker == 2.0){
+	            JOptionPane.showMessageDialog(null, "You picked Paper, the Computer picked Scissors, the Computer wins! ");
+	            }
+
+
+
+	        }
+	    });
+	    scissors.addActionListener(new ActionListener() {
+
+	        @Override
+	        public void actionPerformed(ActionEvent e) {
+	            // TODO Auto-generated method stub
+	            double picker = Math.floor(Math.random()*3);
+	            if(picker == 0.0){
+	                JOptionPane.showMessageDialog(null, "You picked Scissors, the Computer picked Rock, the Computer wins!");
+
+
+	            }
+	            else if(picker == 1.0){
+	                JOptionPane.showMessageDialog(null, "You picked Scissors, the Computer picked Paper, You win!");
+
+
+	            }
+	            else if(picker == 2.0){
+	            JOptionPane.showMessageDialog(null, "You picked Scissors, the Computer picked Scissors, it's a tie!");
+	            }
+
+
+	        }
+	    });
+	    //Head Panel
+	    JLabel title = new JLabel("ROCK PAPER SCISSORS");
+	    head.add(title);
+
+	    //Creating the Check Boxes
+
+
+	    //add the Check Boxes to Panel 2
+
+
+	    //Creating the label and text area
+
+
+	    //GridBag Spacing Stuff
+	    GridBagConstraints gbc = new GridBagConstraints();
+	    gbc.insets = new Insets(15,15,15,15);
+
+
+
+	    //Adding things to the body
+	    gbc.gridx = 2;
+	    gbc.gridy = 0;
+	    body.add(label);
+
+	    gbc.gridx = 0;
+	    gbc.gridy = 1;
+	    body.add(rock, gbc);
+	    gbc.gridx = 0;
+	    gbc.gridy = 2;
+	    body.add(paper, gbc);
+	    gbc.gridx = 0;
+	    gbc.gridy = 3;
+	    body.add(scissors, gbc);
+	    //positioning the panel's 
+	    add(footer, BorderLayout.SOUTH);
+	    add(body, BorderLayout.CENTER);
+	    add(head, BorderLayout.NORTH);
+	}
+}
